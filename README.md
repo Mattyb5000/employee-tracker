@@ -7,5 +7,6 @@ You can find a demo of the Employee Tracker here:
 
 [Employee Tracker Demo]()
 
-
+[GitHub repository](https://github.com/Mattyb5000/employee-tracker.git)
+ 
 
