@@ -75,6 +75,7 @@ const createDepartment = () => {
         })
         .then((answer) => {
             // INSERT INTO department(name), VALUE(answer)
+            console.log(`You added a ${answer.department} department.`)
         });
 };
 
@@ -96,28 +97,32 @@ const createEmployee = () => {
                 message: 'Enter employee role ID'
             },
             {
+                // not sure how to ask this question. Do I need to ask if manager first like other HW assignment?
                 type: 'input',
                 name: 'managerId',
                 message: 'Enter manager ID if this employee is a manager'
             },
         ]);
+    };
 
-                const createRole = () => {
+                // const createRole = () => {
 
-                };
+                // };
 
-                const viewDepartments = () => {
+                // const viewDepartments = () => {
 
-                };
+                // };
 
-                const viewEmployees = () => {
+                // const viewEmployees = () => {
 
-                };
+                // };
 
-                const viewRoles = () => {
+                // const viewRoles = () => {
 
-                };
+                // };
 
-                const updateEmployee = () => {
+                // const updateEmployee = () => {
 
-                };
+                // };
+
+             
