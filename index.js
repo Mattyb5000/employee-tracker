@@ -94,15 +94,21 @@ const createEmployee = () => {
             {
                 type: 'input',
                 name: 'roleId',
-                message: 'Enter employee role ID'
+                message: "What is employee's role?",
+                choices: ['Manager', 'Engineer']
+
             },
             {
-                // not sure how to ask this question. Do I need to ask if manager first like other HW assignment?
+                // not sure how to ask this question. Do I need to ask if employee is a manager first like other HW assignment?
                 type: 'input',
                 name: 'managerId',
-                message: 'Enter manager ID if this employee is a manager'
+                message: "Who is this employee's manager?"
             },
-        ]);
+        ])
+        .then((answer) => {
+            //pull data from workbench to get table to appear with headers at top and info displayed in rows.
+           console.table(answer) 
+        });
     };
 
                 // const createRole = () => {
