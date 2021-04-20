@@ -36,7 +36,7 @@ const runApp = () => {
                     break;
 
                 case 'Create role':
-                    createPromptModule();
+                    createRole();
                     break;
 
                 case 'View departments':
@@ -64,4 +64,60 @@ const runApp = () => {
                     break;
             }
         })
-}
+};
+
+const createDepartment = () => {
+    inquirer
+        .prompt({
+            name: 'department',
+            type: 'input',
+            message: 'What department would you like to add?',
+        })
+        .then((answer) => {
+            // INSERT INTO department(name), VALUE(answer)
+        });
+};
+
+const createEmployee = () => {
+        inquirer
+            .prompt ([{
+                type: 'input',
+                name: 'firstName',
+                message: 'Enter employee first name'
+            },
+            {
+                type: 'input',
+                name: 'lastName',
+                message: 'Enter employee last name'
+            },
+            {
+                type: 'input',
+                name: 'roleId',
+                message: 'Enter employee role ID'
+            },
+            {
+                type: 'input',
+                name: 'managerId',
+                message: 'Enter manager ID if this employee is a manager'
+            },
+        ]);
+
+                const createRole = () => {
+
+                };
+
+                const viewDepartments = () => {
+
+                };
+
+                const viewEmployees = () => {
+
+                };
+
+                const viewRoles = () => {
+
+                };
+
+                const updateEmployee = () => {
+
+                };
