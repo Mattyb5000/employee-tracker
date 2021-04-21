@@ -82,22 +82,24 @@ const viewEmployees = () => {
     INNER JOIN employee_tracker_db.role
     ON employee.role_id = employee_tracker_db.role.id;`, (err, results) => {
         if (err) throw err;
-    console.table(results) //display employee info via table
-})
+        console.table(results) //display employee info via table
+        runApp();
+    })
 }
 
 
 const viewEmpDept = () => {
     inquirer
-    .prompt([{
-        type: 'list',
-        name: 'employeeDept',
-        message: 'Choose an employee to view their department.',
-        choices: [] // populated by employees that have been created
-    }])
-    .then((answer) => {
-        console.log(answer);
-    })
+        .prompt([{
+            type: 'list',
+            name: 'employeeDept',
+            message: 'Choose an employee to view their department.',
+            choices: [] // populated by employees that have been created
+        }])
+        .then((answer) => {
+            console.log(answer);
+            runApp();
+        })
 };
 
 const viewEmpMgr = () => {
@@ -110,6 +112,7 @@ const viewEmpMgr = () => {
         }])
         .then((answer) => {
             console.log(answer);
+            runApp();
         })
 };
 
@@ -125,23 +128,12 @@ const addEmployee = () => {
                 name: 'lastName',
                 message: 'Enter employee last name'
             },
-            {
-                type: 'list',
-                name: 'roleId',
-                message: "What is employee's role?",
-                choices: [] //roles created will be options here
-
-            },
-            {
-                type: 'list',
-                name: 'managerId',
-                message: "Who is this employee's manager?",
-                choices: [] //managers created will be options here
-            }
         ])
         .then((answer) => {
-            //pull data from workbench to get table to appear with headers at top and info displayed in rows.
+            connection.query(`INSERT INTO employee(first_name, last_name) VALUE('${answer.firstName}', '${answer.lastName}')'`)
             console.table(answer)
+            runApp();
+
         });
 };
 //remove employee from list provided
@@ -156,21 +148,23 @@ const removeEmployee = () => {
         .then((answer) => {
             // DELETE employee
             console.table(answer)
+            runApp();
         })
 };
 
 const updateRole = () => {
     inquirer
-    .prompt([{
-        type: 'list',
-        name: 'employee',
-        message: 'Choose which employee you want to update.',
-        choices: [] //employees created will populate here
-    }, ])
-    .then((answer) => {
-        // code to change this employee's information
-        console.table(answer.employee)
-    })
+        .prompt([{
+            type: 'list',
+            name: 'employee',
+            message: 'Choose which employee you want to update.',
+            choices: [] //employees created will populate here
+        }, ])
+        .then((answer) => {
+            // code to change this employee's information
+            console.table(answer.employee)
+            runApp();
+        })
 };
 
 const updateEmpMgr = () => {
@@ -188,5 +182,3 @@ const addRole = () => {
 const removeRole = () => {
 
 };
-
-             
