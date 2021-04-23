@@ -88,33 +88,33 @@ const viewEmployees = () => {
 }
 
 
-const viewEmpDept = () => {
-    inquirer
-        .prompt([{
-            type: 'list',
-            name: 'employeeDept',
-            message: 'Choose an employee to view their department.',
-            choices: [] // populated by employees that have been created
-        }])
-        .then((answer) => {
-            console.log(answer);
-            runApp();
-        })
-};
+// const viewEmpDept = () => {
+//     inquirer
+//         .prompt([{
+//             type: 'list',
+//             name: 'employeeDept',
+//             message: 'Choose an employee to view their department.',
+//             choices: [] // populated by employees that have been created
+//         }])
+//         .then((answer) => {
+//             console.log(answer);
+//             runApp();
+//         })
+// };
 
-const viewEmpMgr = () => {
-    inquirer
-        .prompt([{
-            type: 'list',
-            name: 'employeeName',
-            message: 'Choose an employee to view their manager.',
-            choices: [] // populated by employees that have been created
-        }])
-        .then((answer) => {
-            console.log(answer);
-            runApp();
-        })
-};
+// const viewEmpMgr = () => {
+//     inquirer
+//         .prompt([{
+//             type: 'list',
+//             name: 'employeeName',
+//             message: 'Choose an employee to view their manager.',
+//             choices: [] // populated by employees that have been created
+//         }])
+//         .then((answer) => {
+//             console.log(answer);
+//             runApp();
+//         })
+// };
 
 const addEmployee = () => {
     inquirer
@@ -128,57 +128,62 @@ const addEmployee = () => {
                 name: 'lastName',
                 message: 'Enter employee last name'
             },
+            {
+                type: 'input',
+                name: 'roleId',
+                message: 'Enter role id'
+            },
         ])
         .then((answer) => {
-            connection.query(`INSERT INTO employee(first_name, last_name) VALUE('${answer.firstName}', '${answer.lastName}')'`)
+            connection.query(`INSERT INTO employee(first_name, last_name, role_id) VALUE('${answer.firstName}', '${answer.lastName}', '${answer.roleId}')`)
             console.table(answer)
             runApp();
 
         });
 };
 //remove employee from list provided
-const removeEmployee = () => {
-    inquirer
-        .prompt([{
-            type: 'list',
-            name: 'removeEmp',
-            message: 'Choose which employee you want to remove.',
-            choices: [] //employees created will populate here
-        }, ])
-        .then((answer) => {
-            // DELETE employee
-            console.table(answer)
-            runApp();
-        })
-};
+// const removeEmployee = () => {
+//     inquirer
+//         .prompt([{
+//             type: 'list',
+//             name: 'removeEmp',
+//             message: 'Choose which employee you want to remove.',
+//             choices: [] //employees created will populate here
+//         }, ])
+//         .then((answer) => {
+//             // DELETE employee
+//             console.table(answer)
+//             runApp();
+//         })
+// };
 
-const updateRole = () => {
-    inquirer
-        .prompt([{
-            type: 'list',
-            name: 'employee',
-            message: 'Choose which employee you want to update.',
-            choices: [] //employees created will populate here
-        }, ])
-        .then((answer) => {
-            // code to change this employee's information
-            console.table(answer.employee)
-            runApp();
-        })
-};
+// const updateRole = () => {
+//     inquirer
+//         .prompt([{
+//             type: 'list',
+//             name: 'employee',
+//             message: 'Choose which employee you want to update.',
+//             choices: [] //employees created will populate here
+//         }, ])
+//         .then((answer) => {
+//             // code to change this employee's information
+//             console.table(answer.employee)
+//             runApp();
+//         })
+// };
 
-const updateEmpMgr = () => {
+// const updateEmpMgr = () => {
 
-};
+// };
 
-const viewRoles = () => {
+// const viewRoles = () => {
 
-};
+// };
 
-const addRole = () => {
+// const addRole = () => {
 
-};
+// };
 
-const removeRole = () => {
+// const removeRole = () => {
 
-};
+// };
